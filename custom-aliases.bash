@@ -31,7 +31,7 @@ alias histdownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.Quara
 alias cleandownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
-
+alias portmaj="sudo port selfupdate -v && sudo port upgrade outdated -v"
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
 
