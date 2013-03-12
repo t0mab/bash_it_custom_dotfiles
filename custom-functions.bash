@@ -22,6 +22,25 @@ function calibre_uprgrade()
 # mkdir and cd to new dir
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
+function addalias
+{
+desc="ADD DESCRIPTION..."
+  if [ -n "$3" ]; then
+  desc="$3"
+  fi
+  echo "" >> ~/.bash_it/custom/customa-aliases.bash
+  echo "###" >> ~/.bash_it/custom/customa-aliases.bash
+  echo "##
+
+  $desc" >> ~/.bash_it/custom/customa-aliases.bash
+  echo "#" >> ~/.bash_it/custom/customa-aliases.bash
+  echo "" >> ~/.bash_it/custom/customa-aliases.bash
+  echo "alias '$1'='$2'" >> ~/.bash_it/custom/customa-aliases.bash
+  source ~/.bash_it/custom/customa-aliases.bash
+  echo "" && echo "- Alias added -" && echo ""
+}
+
+function calc(){ awk "BEGIN{ print $* }" ;}
 
 #
 # git relatives
@@ -94,6 +113,9 @@ function createTunnel()
   ssh -N -f $user@$host -L ${localPort}:${host}:${remotePort}
 }
 
+function rmhost() { sed -i "$1d" ~/.ssh/known_hosts; }
+
+
 #
 # alias.sh relative
 #
@@ -119,4 +141,41 @@ function alias-bashup()
             wget -q -O - "$@" https://alias.sh/user/"$1"/alias > ~/.bash_it/custom/customa-aliases.bash
             source ~/.bash_it/custom/customa-aliases.bash
     fi
+}
+
+#
+# php relative
+#
+
+function chkPhp()
+{
+  find . -name "*.php" -exec php -l {} \; | grep "Parse error"
+}
+
+#
+# sniff
+#
+
+function sniff ()
+{
+  sudo ngrep -d ${1} -t '^(GET|POST) ' 'tcp and port 80';
+}
+
+#
+# use duckduckgo in console
+#
+
+function duckduckgo()
+{
+  curl -s http://api.duckduckgo.com/\?no_html\=1\&format\=xml\&q\="$*" | hxselect -c "Answer" ;
+}
+
+#
+# youtube 2 mp3
+#
+#
+
+function yt2mp3()
+{
+  youtube-dl $1 --extract-audio --title --audio-format mp3
 }
