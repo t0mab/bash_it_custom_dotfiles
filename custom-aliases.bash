@@ -27,6 +27,10 @@ alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade && sudo apt-fast cle
 
 #osx specific
 alias finder='open -a Finder ./'
+alias histdownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent'"
+alias cleandownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+alias vimless='/usr/share/vim/vim73/macros/less.sh'
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
