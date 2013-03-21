@@ -11,7 +11,7 @@ alias ccat='pygmentize -O bg=dark'
 alias bcat='pygmentize -O style=monokai -f console256 -g'
 alias sulast='sudo $(history -p !-1)'
 alias whois="whois -h whois-servers.net"
-
+alias nzgrep='grep -v "^\s*$\|^\s*#.*"'
 # ssh stuff
 alias ssh-config="$EDITOR ~/.ssh/config"
 

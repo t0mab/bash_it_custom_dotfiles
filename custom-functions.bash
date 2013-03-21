@@ -76,8 +76,23 @@ function gplh ()
 
 function gbl()
 {
-   git for-each-ref --sort=-committerdate --format='%(committerdate) %(authorname) %(refname)' refs/remotes/origin/|grep -e ".$@"|head -n 10;
+  git for-each-ref --sort=-committerdate --format='%(committerdate) %(authorname) %(refname)' refs/remotes/origin/|grep -e ".$@"|head -n 10;
 }
+
+
+
+function gitolite()  {
+  if [ "$#" -lt 2 ]; then
+    echo "Usage : gitolite <host> <command> [args ...]"
+    return 1;
+  fi
+  GL_USER=$1
+  GL_CMD=$2
+  shift
+  shift
+  ssh "git@$GL_USER" "$GL_CMD" $@
+}
+
 
 #
 # ssh relatives
@@ -167,7 +182,7 @@ function sniff ()
 
 function duckduckgo()
 {
-  curl -s http://api.duckduckgo.com/\?no_html\=1\&format\=xml\&q\="$*" | hxselect -c "Answer" ;
+  curl -s http://api.duckduckgo.com/\?no_html\=1\&format\=xml\&q\="$*" | hxselect -c "Text" ;
 }
 
 #
