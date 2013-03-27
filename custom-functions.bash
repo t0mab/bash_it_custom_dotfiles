@@ -14,7 +14,7 @@
 # MISC
 #
 
-function calibre_uprgrade()
+function calibre_upgrade()
 {
     sudo python -c "import sys; py3 = sys.version_info[0] > 2; u = __import__('urllib.request' if py3 else 'urllib', fromlist=1); exec(u.urlopen('http://status.calibre-ebook.com/linux_installer').read()); main(install_dir='~/bin')"
 }
@@ -28,15 +28,15 @@ desc="ADD DESCRIPTION..."
   if [ -n "$3" ]; then
   desc="$3"
   fi
-  echo "" >> ~/.bash_it/custom/customa-aliases.bash
-  echo "###" >> ~/.bash_it/custom/customa-aliases.bash
+  echo "" >> ~/.bash_it/custom/custom-aliases.bash
+  echo "###" >> ~/.bash_it/custom/custom-aliases.bash
   echo "##
 
-  $desc" >> ~/.bash_it/custom/customa-aliases.bash
-  echo "#" >> ~/.bash_it/custom/customa-aliases.bash
-  echo "" >> ~/.bash_it/custom/customa-aliases.bash
-  echo "alias '$1'='$2'" >> ~/.bash_it/custom/customa-aliases.bash
-  source ~/.bash_it/custom/customa-aliases.bash
+  $desc" >> ~/.bash_it/custom/custom-aliases.bash
+  echo "#" >> ~/.bash_it/custom/custom-aliases.bash
+  echo "" >> ~/.bash_it/custom/custom-aliases.bash
+  echo "alias '$1'='$2'" >> ~/.bash_it/custom/custom-aliases.bash
+  source ~/.bash_it/custom/custom-aliases.bash
   echo "" && echo "- Alias added -" && echo ""
 }
 
@@ -153,8 +153,8 @@ function alias-bashup()
     then
             echo "Usage: getAliasSh_for_bash_it AliasUserID"
     else
-            wget -q -O - "$@" https://alias.sh/user/"$1"/alias > ~/.bash_it/custom/customa-aliases.bash
-            source ~/.bash_it/custom/customa-aliases.bash
+            wget -q -O - "$@" https://alias.sh/user/"$1"/alias > ~/.bash_it/custom/custom-aliases.bash
+            source ~/.bash_it/custom/custom-aliases.bash
     fi
 }
 

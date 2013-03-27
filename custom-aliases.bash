@@ -39,4 +39,3 @@ alias elog='tail -f /var/log/apache2/error.log'
 
 #symfony
 alias scc='php symfony cc'
-
