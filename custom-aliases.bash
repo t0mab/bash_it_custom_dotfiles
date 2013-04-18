@@ -13,6 +13,8 @@ alias sulast='sudo $(history -p !-1)'
 alias whois="whois -h whois-servers.net"
 alias nzgrep='grep -v "^\s*$\|^\s*#.*"'
 alias shl="source-highlight -o STDOUT -f esc -i /dev/stdin -s"
+# dl from ftp/site
+alias dldir="wget -c -nd -r -l 0 -np"
 
 # ssh stuff
 alias ssh-config="$EDITOR ~/.ssh/config"
@@ -23,7 +25,7 @@ alias genSalt='openssl rand -base64 32'
 #git relative
 alias gitsearch='git rev-list --all | xargs git grep -F'
 alias gitclean='find . -maxdepth 2 -type d -name '.git' -print0 | while read -d ""; do (cd "$REPLY"; git gc); done'
-
+alias glog='git log -n 20 --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %an'\'' --abbrev-commit --date=relative'
 #ubuntu relative
 alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade && sudo apt-fast clean"
 
