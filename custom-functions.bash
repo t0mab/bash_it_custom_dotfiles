@@ -79,6 +79,21 @@ function gbl()
   git for-each-ref --sort=-committerdate --format='%(committerdate) %(authorname) %(refname)' refs/remotes/origin/|grep -e ".$@"|head -n 10;
 }
 
+# Sweep a git submodule out of the working copy
+git_rm_submodule() {
+  SMD_PATH=$1
+  if [ ! -d $SMD_PATH ]; then
+    echo "$SMD_PATH does not exist"
+    return 1
+  fi
+
+  git config -f .git/config --remove-section submodule.$SMD_PATH
+  git config -f .gitmodules --remove-section submodule.$SMD_PATH
+  git rm --cached $SMD_PATH
+  rm -rf $SMD_PATH
+  rm -rf .git/modules/$SMD_PATH
+}
+
 
 
 function gitolite()  {
@@ -194,3 +209,4 @@ function yt2mp3()
 {
   youtube-dl $1 --extract-audio --title --audio-format mp3
 }
+
