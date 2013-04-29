@@ -3,6 +3,7 @@
 
 # easily share stuff
 alias shareit='python -m SimpleHTTPServer 8000 ; sudo localtunnel -k ~/.ssh/id_rsa.pub 8000'
+# misc
 alias sweep='find ~ -type f \( -name '*.swp' -o -name 'wget.log' -o -name 'foobar*' -o -name '*~' -o -name '.netrwhist'  \) -delete'
 alias cd..='cd ..'
 alias musique='sudo mount.cifs //kropotkine/music /media/musique -o user=toma,file_mode=0777,dir_mode=0777'
@@ -13,6 +14,8 @@ alias sulast='sudo $(history -p !-1)'
 alias whois="whois -h whois-servers.net"
 alias nzgrep='grep -v "^\s*$\|^\s*#.*"'
 alias shl="source-highlight -o STDOUT -f esc -i /dev/stdin -s"
+alias lsd='ls -l | grep "^d"'
+
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
 
