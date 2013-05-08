@@ -15,6 +15,7 @@ alias whois="whois -h whois-servers.net"
 alias nzgrep='grep -v "^\s*$\|^\s*#.*"'
 alias shl="source-highlight -o STDOUT -f esc -i /dev/stdin -s"
 alias lsd='ls -l | grep "^d"'
+alias apt-foreign="aptitude search ~o"
 
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
