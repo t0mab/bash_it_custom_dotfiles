@@ -109,6 +109,10 @@ function gitolite()  {
 }
 
 
+rgc() {
+    git commit -m"`curl -s http://whatthecommit.com/index.txt`"
+ }
+
 #
 # ssh relatives
 #
