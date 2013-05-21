@@ -214,3 +214,12 @@ function yt2mp3()
   youtube-dl $1 --extract-audio --title --audio-format mp3
 }
 
+#
+# find classes in jar files
+#
+#
+
+function findJavaClass()
+{
+   grep $1 `find . -name '*.jar'`
+}
