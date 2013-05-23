@@ -16,7 +16,7 @@ alias nzgrep='grep -v "^\s*$\|^\s*#.*"'
 alias shl="source-highlight -o STDOUT -f esc -i /dev/stdin -s"
 alias lsd='ls -l | grep "^d"'
 alias apt-foreign="aptitude search ~o"
-
+alias topy='tmux attach -t topy || tmux new-session -s topy -d "htop" \; rename-window htop \; split-window -v -p 15 "iotop -o" \; attach -t topy'
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
 
