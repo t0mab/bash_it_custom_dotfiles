@@ -94,8 +94,6 @@ git_rm_submodule() {
   rm -rf .git/modules/$SMD_PATH
 }
 
-
-
 function gitolite()  {
   if [ "$#" -lt 2 ]; then
     echo "Usage : gitolite <host> <command> [args ...]"
@@ -148,6 +146,8 @@ function createTunnel()
 }
 
 function rmhost() { sed -i "$1d" ~/.ssh/known_hosts; }
+
+sssh (){ ssh -t "$1" 'tmux attach || tmux new || screen -DR'; }
 
 
 #
