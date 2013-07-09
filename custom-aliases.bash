@@ -19,7 +19,8 @@ alias apt-foreign="aptitude search ~o"
 alias topy='tmux attach -t topy || tmux new-session -s topy -d "htop" \; rename-window htop \; split-window -v -p 15 "iotop -o" \; attach -t topy'
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
-
+# less stuff
+alias m='less -x4RFsX'
 # ssh stuff
 alias ssh-config="$EDITOR ~/.ssh/config"
 
