@@ -31,8 +31,7 @@ alias gitsearch='git rev-list --all | xargs git grep -F'
 alias gitclean='find . -maxdepth 2 -type d -name '.git' -print0 | while read -d ""; do (cd "$REPLY"; git gc); done'
 alias glog='git log -n 20 --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %an'\'' --abbrev-commit --date=relative'
 #ubuntu relative
-alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade && sudo apt-fast clean"
-
+alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade -y && sudo apt-fast clean"
 #osx specific
 alias finder='open -a Finder ./'
 alias histdownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent'"

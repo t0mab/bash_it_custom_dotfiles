@@ -223,3 +223,12 @@ function findJavaClass()
 {
    grep $1 `find . -name '*.jar'`
 }
+
+#
+# Run dns and reverse-dns queries
+#
+#
+rdns() {
+    dig +short $1 | xargs -L 5 nslookup | grep name
+}
+alias rnds='rdns'
