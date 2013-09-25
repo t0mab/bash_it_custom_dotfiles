@@ -43,6 +43,7 @@ alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias portmaj="sudo port selfupdate -v && sudo port upgrade outdated -v"
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
-
+#python stuff
+alias pipupdate="pip freeze --local | grep -v -E '(^Django\=|^\-f|^\-e)' | cut -d = -f 1  | xargs pip install -U"
 #symfony
 alias scc='php symfony cc'
