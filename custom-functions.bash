@@ -275,3 +275,14 @@ function nom_du_projet {
         ./manage.py $@
     fi
 }
+
+# ipython notebook profiler
+notebook () {
+    processes=$(ps aux | grep -i -P "ipython notebook" | wc -l)
+    if [[ $processes -lt 2 ]]
+    then
+        nohup ipython notebook --port 8889 --pprint &
+    else
+        chromium-browser http://127.0.0.1:8889
+    fi
+}
