@@ -249,7 +249,6 @@ openssl base64 -in $1 | awk -v ext="${1#*.}" '{ str1=str1 $0 }END{ print "backgr
 echo "$1 encoded to clipboard"
 }
 
-
 # Quickly get image dimensions from the command line
 function imgsize() {
 	local width height
