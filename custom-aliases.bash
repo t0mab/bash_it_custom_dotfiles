@@ -53,8 +53,6 @@ alias elog='tail -f /var/log/apache2/error.log'
 alias pipupdate="pip freeze --local | grep -v -E '(^Django\=|^\-f|^\-e)' | cut -d = -f 1  | xargs pip install -U"
 #symfony
 alias scc='php symfony cc'
-<<<<<<< HEAD
-=======
 
 #django
 alias djangoserver='python manage.py runserver'
@@ -63,4 +61,3 @@ alias djangoserver='python manage.py runserver'
 # sudo add-apt-repository ppa:fossfreedom/byzanz
 # sudo apt-get update && sudo apt-get install byzanz
 alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif'
->>>>>>> 59d45ce6e4667fd727309bf573c19cd51b011c39
