@@ -46,8 +46,9 @@ alias histdownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.Quara
 alias cleandownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias portmaj="sudo port selfupdate -v && sudo port upgrade outdated -v"
-alias quiet_boot-"sudo nvram SystemAudioVolume=%80"
+alias quiet_boot="sudo nvram SystemAudioVolume=%80"
 alias sound_boot="sudo nvram -d SystemAudioVolume"
+alias ebin="rm -rf ~/.Trash/*"
 
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
