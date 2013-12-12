@@ -276,12 +276,40 @@ function nom_du_projet {
 }
 
 # ipython notebook profiler
-notebook () {
+function notebook () {
     processes=$(ps aux | grep -i -P "ipython notebook" | wc -l)
     if [[ $processes -lt 2 ]]
     then
         nohup ipython notebook --port 8889 --pprint &
     else
         chromium-browser http://127.0.0.1:8889
+    fi
+}
+
+function tarEncrypt() {
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ];then
+    echo -e "Wrong arguments. Script usage:\n" \
+
+    "   tarEncrypt source-folder dest-encrypted-file-name password\n" \
+
+    "   Example: tarEncrypt ./MyFolder myFolder-1-1-1970.encrypted MySecretPasword\n"
+    else
+        tar zcvf - $1 | openssl des3 -salt -k $3 | dd of=$2;
+        echo "The file $2 is created!"
+    fi
+}
+
+
+function untarDecrypt() {
+    if [ -z "$1" ] || [ -z "$2" ];then
+        echo -e "Wrong arguments. Script usage:\n" \
+        "   untarDecrypt source-encrypted-file password"
+    else
+        dd if=$1 | openssl des3 -d -salt -k $2 | tar xzf -
+        if [ $? -eq 0 ]; then
+            echo -e "\nThe file $1 was extracted successfully.\n"
+        else
+            echo -e "\nError while decrypting. Probably the given password is wrong.\n"
+        fi
     fi
 }
