@@ -9,7 +9,17 @@
 #   tmux att -t $1 || tmux new -s $1
 #}
 
-
+# Tmux tool 
+t() 
+{
+  if [ "$1" ]; 
+  then
+    tmux att -t $1 || tmux new -s $1 
+  else  
+    tmux ls | sed 's/:.*//'
+    return
+  fi
+}
 #
 # MISC
 #
@@ -27,7 +37,7 @@ function addalias
 desc="ADD DESCRIPTION..."
   if [ -n "$3" ]; then
   desc="$3"
-  fi
+fi
   echo "" >> ~/.bash_it/custom/custom-aliases.bash
   echo "###" >> ~/.bash_it/custom/custom-aliases.bash
   echo "##
