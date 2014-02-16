@@ -19,6 +19,7 @@ alias lsd='ls -l | grep "^d"'
 alias apt-foreign="aptitude search ~o"
 alias topy='tmux attach -t topy || tmux new-session -s topy -d "htop" \; rename-window htop \; split-window -v -p 15 "iotop -o" \; attach -t topy'
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
+alias psc='ps xawf -eo pid,user,cgroup,args'
 
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
@@ -51,6 +52,9 @@ alias portmaj="sudo port selfupdate -v && sudo port upgrade outdated -v"
 alias quiet_boot="sudo nvram SystemAudioVolume=%80"
 alias sound_boot="sudo nvram -d SystemAudioVolume"
 alias ebin="rm -rf ~/.Trash/*"
+alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'"
+alias ebin="rm -rf ~/.Trash/*"
+
 
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
