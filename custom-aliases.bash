@@ -23,6 +23,7 @@ alias psc='ps xawf -eo pid,user,cgroup,args'
 
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
+alias aria2c="aria2c --console-log-level=error --check-integrity --bt-hash-check-seed=false -c"
 
 # less stuff
 alias m='less -x4RFsX'
