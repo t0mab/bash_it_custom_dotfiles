@@ -20,6 +20,8 @@ alias apt-foreign="aptitude search ~o"
 alias topy='tmux attach -t topy || tmux new-session -s topy -d "htop" \; rename-window htop \; split-window -v -p 15 "iotop -o" \; attach -t topy'
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias psc='ps xawf -eo pid,user,cgroup,args'
+alias spy='spy () { lsof -i -P +c 0 +M | grep -i "$1" }'
+alias json='python -mjson.tool'
 
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
@@ -37,9 +39,10 @@ alias genSalt='openssl rand -base64 32'
 #git relative
 alias gitsearch='git rev-list --all | xargs git grep -F'
 alias gitclean='find . -maxdepth 2 -type d -name '.git' -print0 | while read -d ""; do (cd "$REPLY"; git gc); done'
-alias glog='git log -n 20 --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %an'\'' --abbrev-commit --date=relative'
+alias gitlog='git log -n 20 --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %an'\'' --abbrev-commit --date=relative'
 alias gitcountfiles="git ls-files | wc -l"
-alias git-count-commits="git log --pretty=format:'' | wc -l"
+alias gitcountcommits="git log --pretty=format:'' | wc -l"
+alias github="chromium-browser \`git remote -v | grep github.com | grep fetch | head -1 | field 2 | sed 's/git:/http:/g'\`"
 
 #ubuntu relative
 alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade -y && sudo apt-fast clean"
@@ -57,11 +60,12 @@ alias ebin="rm -rf ~/.Trash/*"
 alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'"
 alias ebin="rm -rf ~/.Trash/*"
 
-
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
+
 #python stuff
 alias pipupdate="pip freeze --local | grep -v -E '(^Django\=|^\-f|^\-e)' | cut -d = -f 1  | xargs pip install -U"
+
 #symfony
 alias scc='php symfony cc'
 

@@ -121,6 +121,11 @@ rgc() {
     git commit -m"`curl -s http://whatthecommit.com/index.txt`"
  }
 
+function gitretag() {
+    git tag -d $1 && git push --delete origin $1 && git tag $1 && git push --tags
+}
+
+
 #
 # ssh relatives
 #
