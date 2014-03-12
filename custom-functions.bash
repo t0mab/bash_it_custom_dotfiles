@@ -90,7 +90,7 @@ function gbl()
 }
 
 # Sweep a git submodule out of the working copy
-git_rm_submodule() {
+gitrmsubmodule() {
   SMD_PATH=$1
   if [ ! -d $SMD_PATH ]; then
     echo "$SMD_PATH does not exist"
@@ -117,7 +117,7 @@ function gitolite()  {
 }
 
 
-rgc() {
+gitrandomc() {
     git commit -m"`curl -s http://whatthecommit.com/index.txt`"
  }
 
@@ -125,6 +125,10 @@ function gitretag() {
     git tag -d $1 && git push --delete origin $1 && git tag $1 && git push --tags
 }
 
+gitworkdone(){
+        default="1 day ago"
+            git log --committer=$1 --pretty=format:"%Cgreen%ar (%h)%n%Creset> %s %b%n" --since="${2:-$default}" --no-merges
+}
 
 #
 # ssh relatives

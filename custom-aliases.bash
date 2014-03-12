@@ -37,9 +37,19 @@ alias ssh-config="$EDITOR ~/.ssh/config"
 alias genSalt='openssl rand -base64 32'
 
 #git relative
+
+alias gs='git status' #N.B. Overrides ghostscript (probably not important if you don't use it)
+alias gd='git diff'
+alias gc='git commit -m'
+alias gl='git log --graph --full-history --all --color'
+alias ga='git add'
+alias gaa='git add -A'
+alias gp='git push'
 alias gitsearch='git rev-list --all | xargs git grep -F'
 alias gitclean='find . -maxdepth 2 -type d -name '.git' -print0 | while read -d ""; do (cd "$REPLY"; git gc); done'
 alias gitlog='git log -n 20 --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %an'\'' --abbrev-commit --date=relative'
+alias gitlog2='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias gitlog3="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitcountfiles="git ls-files | wc -l"
 alias gitcountcommits="git log --pretty=format:'' | wc -l"
 alias github="chromium-browser \`git remote -v | grep github.com | grep fetch | head -1 | field 2 | sed 's/git:/http:/g'\`"
