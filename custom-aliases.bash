@@ -71,7 +71,10 @@ alias sound_boot="sudo nvram -d SystemAudioVolume"
 alias ebin="rm -rf ~/.Trash/*"
 alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'"
 alias ebin="rm -rf ~/.Trash/*"
+alias airdropon="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool TRUE; killall Finder"
+alias airdropoff="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool FALSE; killall Finder
 
+alias osxpg_start="postgres -D /usr/local/var/postgres"
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
 
