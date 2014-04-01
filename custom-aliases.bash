@@ -24,6 +24,7 @@ alias psc='ps xawf -eo pid,user,cgroup,args'
 alias spy='spy () { lsof -i -P +c 0 +M | grep -i "$1" }'
 alias json='python -mjson.tool'
 alias node='env NODE_NO_READLINE=1 rlwrap -p Green -S "node >>> " node'
+alias formatpep8='autopep8 -r -i .'
 
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
