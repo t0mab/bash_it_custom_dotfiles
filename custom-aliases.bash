@@ -24,7 +24,7 @@ alias psc='ps xawf -eo pid,user,cgroup,args'
 alias spy='spy () { lsof -i -P +c 0 +M | grep -i "$1" }'
 alias json='python -mjson.tool'
 alias node='env NODE_NO_READLINE=1 rlwrap -p Green -S "node >>> " node'
-alias formatpep8='autopep8 -r -i .'
+alias formatpep8="autopep8 -r -i ."
 
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
@@ -73,7 +73,7 @@ alias ebin="rm -rf ~/.Trash/*"
 alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'"
 alias ebin="rm -rf ~/.Trash/*"
 alias airdropon="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool TRUE; killall Finder"
-alias airdropoff="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool FALSE; killall Finder
+alias airdropoff="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool FALSE; killall Finder"
 
 alias osxpg_start="postgres -D /usr/local/var/postgres"
 #apache
