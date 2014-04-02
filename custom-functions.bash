@@ -166,7 +166,6 @@ function createTunnel()
 
 function rmhost() { sed -i "$1d" ~/.ssh/known_hosts; }
 
-sssh (){ ssh -t "$1" 'tmux attach || tmux new || screen -DR'; }
 
 
 #
@@ -331,4 +330,9 @@ function untarDecrypt() {
             echo -e "\nError while decrypting. Probably the given password is wrong.\n"
         fi
     fi
+}
+
+# open with sublime text
+function st() {
+    open -a Sublime\ Text "$@";
 }
