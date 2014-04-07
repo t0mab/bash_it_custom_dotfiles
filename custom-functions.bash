@@ -336,3 +336,8 @@ function untarDecrypt() {
 function st() {
     open -a Sublime\ Text "$@";
 }
+
+# refresh bashrc
+function refre_sh () {
+    . ~/.bashrc
+}

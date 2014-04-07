@@ -23,7 +23,7 @@ alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias spy='spy () { lsof -i -P +c 0 +M | grep -i "$1" }'
 alias json='python -mjson.tool'
-alias node='env NODE_NO_READLINE=1 rlwrap -p Green -S "node >>> " node'
+#alias node='env NODE_NO_READLINE=1 rlwrap -p Green -S "node >>> " node'
 alias formatpep8="autopep8 -r -i ."
 
 # dl from ftp/site
@@ -44,7 +44,7 @@ alias genSalt='openssl rand -base64 32'
 alias gs='git status' #N.B. Overrides ghostscript (probably not important if you don't use it)
 alias gd='git diff'
 alias gc='git commit -m'
-alias gl='git log --graph --full-history --all --color'
+#alias gl='git log --graph --full-history --all --color'
 alias ga='git add'
 alias gaa='git add -A'
 alias gp='git push'
