@@ -64,7 +64,7 @@ alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade -y && sudo apt-fast 
 alias finder='open -a Finder ./'
 alias histdownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent'"
 alias cleandownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
-alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+alias subl='/Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl'
 alias portmaj="sudo port selfupdate -v && sudo port upgrade outdated -v"
 alias brewmaj="brew update && brew upgrade"
 alias quiet_boot="sudo nvram SystemAudioVolume=%80"
