@@ -341,3 +341,8 @@ function st() {
 function refre_sh () {
     . ~/.bashrc
 }
+
+# t /path/file word hilight word in tail
+function tail_colored() { 
+  tail -f $1 | sed "s/$2/\x1B[1;31;43m&\x1B[0m/g";
+}
