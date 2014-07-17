@@ -346,3 +346,8 @@ function refre_sh () {
 function tail_colored() { 
   tail -f $1 | sed "s/$2/\x1B[1;31;43m&\x1B[0m/g";
 }
+
+# django create dev/test superuser
+function django_create_superuser() {
+    python -c "from django.db import DEFAULT_DB_ALIAS as database; from django.contrib.auth.models import User; User.objects.db_manager(database).create_superuser('admin', 'admin@admin.com', 'admin')"
+}
