@@ -7,7 +7,7 @@ alias shareit='python -m SimpleHTTPServer 8000 ; sudo localtunnel -k ~/.ssh/id_r
 # misc
 alias sweep='find ~ -type f \( -name '*.swp' -o -name 'wget.log' -o -name 'foobar*' -o -name '*~' -o -name '.netrwhist'  \) -delete'
 alias cd..='cd ..'
-alias musique='sudo mount.cifs //kropotkine/music /media/musique -o user=toma,file_mode=0777,dir_mode=0777'
+#alias musique='sudo mount.cifs //kropotkine/music /media/musique -o user=toma,file_mode=0777,dir_mode=0777'
 alias ducks='du -cks *|sort -rn|head -11'
 alias ccat='pygmentize -O bg=dark'
 alias bcat='pygmentize -O style=monokai -f console256 -g'
@@ -66,7 +66,7 @@ alias histdownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.Quara
 alias cleandownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias portmaj="sudo port selfupdate -v && sudo port upgrade outdated -v"
-alias brewmaj="brew update && brew upgrade"
+alias brewmaj="brew update && brew upgrade && brew cask update"
 alias quiet_boot="sudo nvram SystemAudioVolume=%80"
 alias sound_boot="sudo nvram -d SystemAudioVolume"
 alias ebin="rm -rf ~/.Trash/*"

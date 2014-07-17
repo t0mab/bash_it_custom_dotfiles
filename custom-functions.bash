@@ -10,7 +10,7 @@
 #}
 
 # Tmux tool 
-t() 
+tm() 
 {
   if [ "$1" ]; 
   then
