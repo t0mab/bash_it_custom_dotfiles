@@ -59,7 +59,7 @@ alias github="chromium-browser \`git remote -v | grep github.com | grep fetch | 
 
 #ubuntu relative
 alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade -y && sudo apt-fast clean"
-
+alias install-essentiel="sudo add-apt-repository ppa:ricotz/docky;sudo apt-get update; sudo apt-get install php5-common libapache2-mod-php5 php5-cli git plank vim skype guake chromium-browser git firefox vlc filezilla"
 #osx specific
 alias finder='open -a Finder ./'
 alias histdownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent'"
