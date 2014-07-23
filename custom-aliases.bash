@@ -93,4 +93,4 @@ alias djangoserver='python manage.py runserver'
 # sudo apt-get update && sudo apt-get install byzanz
 alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif'
 
-alias leekloud='node ~/Dev/LeeKloud/_LeeKloud.js'
+alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
