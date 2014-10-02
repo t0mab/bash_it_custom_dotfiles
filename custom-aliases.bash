@@ -12,7 +12,7 @@ alias ducks='du -cks *|sort -rn|head -11'
 alias ccat='pygmentize -O bg=dark'
 alias bcat='pygmentize -O style=monokai -f console256 -g'
 alias sulast='sudo $(history -p !-1)'
-alias whois="whois -h whois-servers.net"
+#alias whois="whois -h whois-servers.net"
 alias nzgrep='grep -v "^\s*$\|^\s*#.*"'
 alias shl="source-highlight -o STDOUT -f esc -i /dev/stdin -s"
 alias lsd='ls -l | grep "^d"'
