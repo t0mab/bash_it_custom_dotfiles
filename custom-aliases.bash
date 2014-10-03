@@ -85,6 +85,7 @@ alias elog='tail -f /var/log/apache2/error.log'
 
 #python stuff
 alias pipupdate="pip freeze --local | grep -v -E '(^Django\=|^\-f|^\-e)' | cut -d = -f 1  | xargs pip install -U"
+alias covertest='coverage run -m unittest discover tests/'
 
 #symfony
 alias scc='php symfony cc'
@@ -126,3 +127,4 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 
 #
 alias archupdate='~/Scripts/News.sh  && yaourt -Syua'
+
