@@ -351,3 +351,12 @@ function tail_colored() {
 function django_create_superuser() {
     python -c "from django.db import DEFAULT_DB_ALIAS as database; from django.contrib.auth.models import User; User.objects.db_manager(database).create_superuser('admin', 'admin@admin.com', 'admin')"
 }
+
+# copy function  
+# copy /source/file /destination/file
+copy() {
+    size=$(stat -c%s $1)
+    dd if=$1 &> /dev/null | pv -petrb -s $size | dd of=$2
+}
+}
+
