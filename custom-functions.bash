@@ -358,5 +358,4 @@ copy() {
     size=$(stat -c%s $1)
     dd if=$1 &> /dev/null | pv -petrb -s $size | dd of=$2
 }
-}
 
