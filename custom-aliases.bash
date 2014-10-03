@@ -85,6 +85,7 @@ alias elog='tail -f /var/log/apache2/error.log'
 
 #python stuff
 alias pipupdate="pip freeze --local | grep -v -E '(^Django\=|^\-f|^\-e)' | cut -d = -f 1  | xargs pip install -U"
+alias covertest='coverage run -m unittest discover tests/'
 
 #symfony
 alias scc='php symfony cc'
@@ -99,6 +100,7 @@ alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=
 
 alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
 
+<<<<<<< Updated upstream
 #arch linux relatives
 
 alias pacupg='sudo pacman -Syu'         # Synchronize with repositories and then upgrade packages that are out of date on the local system.
@@ -126,3 +128,4 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 
 #
 alias archupdate='~/Scripts/News.sh  && yaourt -Syua'
+
