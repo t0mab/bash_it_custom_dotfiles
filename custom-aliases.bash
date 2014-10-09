@@ -129,5 +129,5 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 alias archmaj='~/Scripts/News.sh  && yaourt -Syua'
 
 # vagrant boxes ssh
-alias vagrantdev1='ssh vagrant@192.168.1.2'
+alias vagrantdev='ssh vagrant@192.168.1.2'
 alias vagrantdev2='ssh vagrant@192.168.1.3'
