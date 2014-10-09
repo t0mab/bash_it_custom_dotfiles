@@ -126,5 +126,8 @@ alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as
 alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 
 #
-alias archupdate='~/Scripts/News.sh  && yaourt -Syua'
+alias archmaj='~/Scripts/News.sh  && yaourt -Syua'
 
+# vagrant boxes ssh
+alias vagrantdev1='ssh vagrant@192.168.1.2'
+alias vagrantdev2='ssh vagrant@192.168.1.3'
