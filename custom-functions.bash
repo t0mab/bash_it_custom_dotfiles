@@ -359,6 +359,41 @@ copy() {
     dd if=$1 &> /dev/null | pv -petrb -s $size | dd of=$2
 }
 
+# Change dir via find
+# Usage: cdf (dir)
+cdf() {
+  pushd $(find . -name $1)
+}
+
+# Find file
+# Usage: ff (file)
+ff() {
+  find . -name $1
+}
+
+# Vim file via find
+# Usage: ff (file)
+vimf() {
+  vim $(find . -name $1)
+}
+
+# Allows you to search for any text in any file.
+# Usage: ft "my string" *.php
+ft() {
+  find . -name "$2" -exec grep -il "$1" {} \;
+}
+
+# Find duplicate files
+# Usage: dups (dir)
+dups() {
+  fdupes -v && fdupes -rS1 $1 | sed '$!N;s/\n/ /' | sort -n
+}
+
+# Find command in history
+# Usage: ff (file)
+h() {
+  history | grep $1
+}
 
 # Specific functions for os
 OS="`uname`"
@@ -374,6 +409,12 @@ case $OS in
     ;;
   'darwin')
     OS='Mac'
+
+    # Realpath to provide absolute path with OSX
+    # See: http://stackoverflow.com/questions/3572030/bash-script-absolute-path-with-osx
+    realpath () {
+      [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+    }
     ;;
   'SunOS')
     OS='Solaris'
