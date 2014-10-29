@@ -74,6 +74,9 @@ alias netlisteners='lsof -i -P | grep LISTEN'
 alias psmem='ps -o time,ppid,pid,nice,pcpu,pmem,user,comm -A | sort -n -k 6 | tail -15'
 # leekloud webgame
 alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
+# vpn stuff
+alias vpnroute='sudo route add -net 130.79.0.0 netmask 255.255.0.0 gw 130.79.203.254 dev eth0'
+
 #  specific os relatives alias
 OS="`uname`"
 case $OS in
