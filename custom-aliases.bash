@@ -126,7 +126,7 @@ case $OS in
   'WindowsNT')
     OS='Windows'
     ;;
-  'darwin')
+  'Darwin')
     OS='Mac'
     #osx specific
     alias airdropoff="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool FALSE; killall Finder"
