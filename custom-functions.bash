@@ -407,7 +407,7 @@ case $OS in
   'WindowsNT')
     OS='Windows'
     ;;
-  'darwin')
+  'Darwin')
     OS='Mac'
 
     # Realpath to provide absolute path with OSX
