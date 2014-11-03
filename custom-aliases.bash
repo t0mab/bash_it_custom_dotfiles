@@ -57,6 +57,7 @@ alias elog='tail -f /var/log/apache2/error.log'
 alias covertest='coverage run -m unittest discover tests/'
 alias formatpep8="autopep8 -r -i ."
 alias pipupdate="pip freeze --local | grep -v -E '(^Django\=|^\-f|^\-e)' | cut -d = -f 1  | xargs pip install -U"
+alias venvproject="setvirtualenvproject $VIRTUAL_ENV $(pwd)"
 #symfony
 alias scc='php symfony cc'
 #django
@@ -64,6 +65,7 @@ alias djangoserver='python manage.py runserver'
 # vagrant boxes ssh
 alias vagrantdev='ssh vagrant@192.168.1.2'
 alias vagrantdev2='ssh vagrant@192.168.1.3'
+alias vagrantcopyid='ssh-copy-id vagrant@192.168.1.2 && ssh-copy-id vagrant@192.168.1.3'
 # misc
 alias big-files='find -type f -ls | sort -k7 -r -n | head -20'
 alias big='du -cks *|sort -rn|head -20'
