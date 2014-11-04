@@ -58,6 +58,7 @@ alias covertest='coverage run -m unittest discover tests/'
 alias formatpep8="autopep8 -r -i ."
 alias pipupdate="pip freeze --local | grep -v -E '(^Django\=|^\-f|^\-e)' | cut -d = -f 1  | xargs pip install -U"
 alias venvproject="setvirtualenvproject $VIRTUAL_ENV $(pwd)"
+
 #symfony
 alias scc='php symfony cc'
 #django
@@ -158,7 +159,6 @@ case $OS in
   'AIX') ;;
   *) ;;
 esac
-
 
 
 
