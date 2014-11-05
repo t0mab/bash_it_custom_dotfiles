@@ -20,6 +20,16 @@ tm()
     return
   fi
 }
+
+# htpasswd without htpasswd
+nohtpasswd()
+{
+    [ ! $# -eq 2 ] && { echo -e "Usage: nohtpasswd file_name user"; return 1; }
+    echo "password:"
+    read -s password
+    echo -e "$2:`perl -le 'print crypt($password,"salt")'`" >> $1
+}
+
 #
 # MISC
 #
