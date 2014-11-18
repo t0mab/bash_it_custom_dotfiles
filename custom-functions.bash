@@ -34,6 +34,16 @@ nohtpasswd()
 # MISC
 #
 
+# remove  ^M car from files
+# usage: removem /path/to/dir
+function removem()
+{
+    for file in $(find $1 -type f); do
+        tr -d '\r' <$file >temp.$$ && mv temp.$$ $file
+    done
+
+}
+
 function calibre_upgrade()
 {
     sudo python -c "import sys; py3 = sys.version_info[0] > 2; u = __import__('urllib.request' if py3 else 'urllib', fromlist=1); exec(u.urlopen('http://status.calibre-ebook.com/linux_installer').read()); main(install_dir='~/bin')"
@@ -408,7 +418,7 @@ h() {
 # inits project for django-drybone project
 # see https://github.com/unistra/django-drybones
 # Usage initproject project_name [ -p python_version -d django_version]
-# example initproject -p 3 -d 1.7
+# example initproject -p 3 -d 1.6.1
 initproject() {
     unset PYTHON_VERSION
     unset PYTHON_PATH
@@ -416,7 +426,7 @@ initproject() {
     if [ -z "$1" ];then
         echo -e "Missing argument. Script usage:\n" \
         "   initproject project_name [ -p python_version -d django_version]" \
-        "   example : initproject -p 3 -d 1.7 "
+        "   example : initproject -p 3 -d 1.6.1 "
     else
         PROJECT_NAME=$1
         ARGS=`getopt --long -o "p:d:" "$@"`
@@ -439,7 +449,7 @@ initproject() {
         PYTHON_VERSION_PATH=`which python$PYTHON_VERSION`
         mkvirtualenv $PROJECT_NAME -p "$PYTHON_VERSION_PATH"
         if [ -z "$DJANGO_VERSION" ];then
-            read -e -p "Which django version to install:" -i "1.6" DJANGO_VERSION
+            DJANGO_VERSION=1.6
         fi
         pip install Django==$DJANGO_VERSION
         django-admin.py startproject --template=https://github.com/unistra/django-drybones/archive/master.zip --extension=html,rst,ini --name=Makefile $PROJECT_NAME
