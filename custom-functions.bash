@@ -9,13 +9,13 @@
 #   tmux att -t $1 || tmux new -s $1
 #}
 
-# Tmux tool 
-tm() 
+# Tmux tool
+tm()
 {
-  if [ "$1" ]; 
+  if [ "$1" ];
   then
-    tmux att -t $1 || tmux new -s $1 
-  else  
+    tmux att -t $1 || tmux new -s $1
+  else
     tmux ls | sed 's/:.*//'
     return
   fi
@@ -363,7 +363,7 @@ function refre_sh () {
 }
 
 # t /path/file word hilight word in tail
-function tail_colored() { 
+function tail_colored() {
   tail -f $1 | sed "s/$2/\x1B[1;31;43m&\x1B[0m/g";
 }
 
@@ -372,7 +372,7 @@ function django_create_superuser() {
     python -c "from django.db import DEFAULT_DB_ALIAS as database; from django.contrib.auth.models import User; User.objects.db_manager(database).create_superuser('admin', 'admin@admin.com', 'admin')"
 }
 
-# copy function  
+# copy function
 # copy /source/file /destination/file
 copy() {
     size=$(stat -c%s $1)
@@ -458,6 +458,7 @@ initproject() {
         echo "export DJANGO_SETTINGS_MODULE=$PROJECT_NAME.settings.dev" >> $VIRTUAL_ENV/bin/postactivate
         echo "unset DJANGO_SETTINGS_MODULE" >> $VIRTUAL_ENV/bin/postdeactivate
         workon $PROJECT_NAME
+        chmod +x manage.py
         pip install -r requirements/dev.txt
     fi
 }
