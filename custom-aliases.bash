@@ -121,6 +121,7 @@ case $OS in
     # secure mv & rm
     alias mv=' timeout 8 mv -iv'
     alias rm=' timeout 3 rm -Iv --one-file-system'
+    alias 'o'='xdg-open' 
     ;;
   'FreeBSD')
     OS='FreeBSD'
