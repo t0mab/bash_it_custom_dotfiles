@@ -68,6 +68,7 @@ alias vagrantdev='ssh vagrant@192.168.1.2'
 alias vagrantdev2='ssh vagrant@192.168.1.3'
 alias vagrantcopyid='ssh-copy-id vagrant@192.168.1.2 && ssh-copy-id vagrant@192.168.1.3'
 # misc
+alias bashitmaj='cd ~/.bash_it && git pull'
 alias big-files='find -type f -ls | sort -k7 -r -n | head -20'
 alias big='du -cks *|sort -rn|head -20'
 alias ds='du -ks *|sort -n'
@@ -135,7 +136,7 @@ case $OS in
     #osx specific
     alias airdropoff="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool FALSE; killall Finder"
     alias airdropon="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool TRUE; killall Finder"
-    alias brewmaj="brew update && brew upgrade && brew cask update"
+    alias brewmaj="brew update && brew upgrade && brew cask update && brew cleanup && brew cask cleanup"
     alias cleandownload="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
     alias DiskUtility_debug='defaults write com.apple.DiskUtility DUDebugMenuEnabled 1' # http://osxdaily.com/2011/09/23/view-mount-hidden-partitions-in-mac-os-x/
     alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'"
