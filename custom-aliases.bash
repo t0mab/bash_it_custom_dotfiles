@@ -71,16 +71,26 @@ alias vagrantcopyid='ssh-copy-id vagrant@192.168.1.2 && ssh-copy-id vagrant@192.
 alias bashitmaj='cd ~/.bash_it && git pull'
 alias big-files='find -type f -ls | sort -k7 -r -n | head -20'
 alias big='du -cks *|sort -rn|head -20'
+alias lsbig="echo -n listing files & directories by size | pv -qL 10 && ls -lSrh | ccze -A"
 alias ds='du -ks *|sort -n'
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
 alias ifconfig-ext='curl ifconfig.me' # Or: ip.appspot.com
 alias netlisteners='lsof -i -P | grep LISTEN'
 alias psmem='ps -o time,ppid,pid,nice,pcpu,pmem,user,comm -A | sort -n -k 6 | tail -15'
+alias toprun="ps axo %cpu,%mem,comm |sort -unr| head -n 9 | ccze -A" #top processes
+alias hist="history -n 20 | ccze -A"    #shell history
+alias psusage="ps aux  --sort=-%cpu | grep -m 11 -v `whoami` | ccze -A"  #cpu load
+alias nstat="netstat -p TCP -eWc | ccze -A" 
+alias fact='wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;"'
+
 # leekloud webgame
 alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
 # vpn stuff
 alias vpnroute='sudo route add -net 130.79.0.0 netmask 255.255.0.0 gw 130.79.203.254 dev eth0'
-
+# weather 
+alias weatherfc='echo -n "Meteo de la semaine à Strasbourg  " | pv -qL 20 && weatherman -x "Strasbourg,France" | ccze -A'
+alias weather='echo -n "Meteo Strasbourg  " | pv -qL 20 && weatherman  "Strasbourg,France" '
+alias mtv="mpv http://83.218.202.202:1935/live/wt_mtv.stream/playlist.m3u8"
 #  specific os relatives alias
 OS="`uname`"
 case $OS in
@@ -123,6 +133,12 @@ case $OS in
     alias mv=' timeout 8 mv -iv'
     alias rm=' timeout 3 rm -Iv --one-file-system'
     alias 'o'='xdg-open' 
+    alias archerrors='echo -n Journal Errors | pv -qL 10 && journalctl -b -p err | ccze -A'
+    alias systemdmsg="sudo journalctl /usr/lib/systemd/systemd | ccze -A"
+    alias blame="systemd-analyze blame | ccze -A"  
+    alias boot="echo -n Boot Time | pv -qL 10 && systemd-analyze | ccze -A"
+    alias units="echo -n Listing Units | pv -qL 10 && systemctl list-units | ccze -A"
+    
     ;;
   'FreeBSD')
     OS='FreeBSD'
