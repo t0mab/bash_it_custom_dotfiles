@@ -3,6 +3,7 @@
 
 # easily share stuff
 alias shareit='python -m SimpleHTTPServer 8000 ; sudo localtunnel -k ~/.ssh/id_rsa.pub 8000'
+
 # misc
 alias bcat='pygmentize -O style=monokai -f console256 -g'
 alias ccat='pygmentize -O bg=dark'
@@ -25,16 +26,20 @@ alias sweep='find ~ -type f \( -name '*.swp' -o -name 'wget.log' -o -name 'fooba
 alias topy='tmux attach -t topy || tmux new-session -s topy -d "htop" \; rename-window htop \; split-window -v -p 15 "iotop -o" \; attach -t topy'
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
 #alias whois="whois -h whois-servers.net"
+
 # dl from ftp/site
 alias dldir="wget -c -nd -r -l 0 -np"
 alias aria2c="aria2c --console-log-level=error --check-integrity --bt-hash-check-seed=false -c"
 alias wget-all='wget --user-agent=Mozilla -e robots=off --content-disposition --mirror --convert-links -E -K -N -r -c'
+
 # less stuff
 alias m='less -x4RFsX'
+
 # ssh stuff
 alias ssh-config="$EDITOR ~/.ssh/config"
 #salt generation
 alias genSalt='openssl rand -base64 32'
+
 #git relative
 #alias gl='git log --graph --full-history --all --color'
 alias ga='git add'
@@ -52,8 +57,10 @@ alias gitsearch='git rev-list --all | xargs git grep -F'
 alias gp='git push'
 alias gs='git status' #N.B. Overrides ghostscript (probably not important if you don't use it)
 #alias gitprompt="export PS1=\[\033]0;$(__title_bar)\007\][\u@\h \W$(__git_tags | tail -n1 | perl -pe '"'"'s/^(.+)$/ ($1)/'"'"')$(__git_ps1 " (%s)")]\$"
+
 #apache
 alias elog='tail -f /var/log/apache2/error.log'
+
 #python stuff
 alias covertest='coverage run -m unittest discover tests/'
 alias formatpep8="autopep8 -r -i ."
@@ -62,12 +69,15 @@ alias venvproject="setvirtualenvproject $VIRTUAL_ENV $(pwd)"
 
 #symfony
 alias scc='php symfony cc'
+
 #django
 alias djangoserver='python manage.py runserver'
+
 # vagrant boxes ssh
 alias vagrantdev='ssh vagrant@192.168.1.2'
 alias vagrantdev2='ssh vagrant@192.168.1.3'
 alias vagrantcopyid='ssh-copy-id vagrant@192.168.1.2 && ssh-copy-id vagrant@192.168.1.3'
+
 # misc
 alias bashitmaj='cd ~/.bash_it && git pull'
 alias big-files='find -type f -ls | sort -k7 -r -n | head -20'
@@ -86,8 +96,10 @@ alias fact='wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;
 
 # leekloud webgame
 alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
+
 # vpn stuff
 alias vpnroute='sudo route add -net 130.79.0.0 netmask 255.255.0.0 gw 130.79.203.254 dev eth0'
+
 # weather 
 alias weatherfc='echo -n "Meteo de la semaine à Strasbourg  " | pv -qL 20 && weatherman -x "Strasbourg,France" | ccze -A'
 alias weather='echo -n "Meteo Strasbourg  " | pv -qL 20 && weatherman  "Strasbourg,France" '
@@ -98,10 +110,12 @@ case $OS in
   'Linux')
     OS='Linux'
     alias ls='ls --color=auto'
+    
     #ubuntu relative
     alias apt-foreign="aptitude search ~o"
     alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade -y && sudo apt-fast clean"
     alias install-essential="sudo add-apt-repository ppa:ricotz/docky;sudo apt-get update; sudo apt-get install php5-common libapache2-mod-php5 php5-cli git plank vim skype guake chromium-browser git firefox vlc filezilla"
+    
     #arch linux relatives
     alias pacc="sudo pacman -Scc"           # Clean cache - delete all not currently installed package files
     alias pacexpl="pacman -D --asexp"       # Mark one or more installed packages as explicitly installed
@@ -124,12 +138,14 @@ case $OS in
     alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as dependencies
     alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
     alias pacupd='sudo pacman -Sy && sudo abs'         # Update and refresh the local package and ABS databases against repositories
+    
     #misc
     #
     # byzanz screencaster to gif
     # sudo add-apt-repository ppa:fossfreedom/byzanz
     # sudo apt-get update && sudo apt-get install byzanz
     alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif'
+    
     # secure mv & rm
     alias mv=' timeout 8 mv -iv'
     alias rm=' timeout 3 rm -Iv --one-file-system'
@@ -150,6 +166,7 @@ case $OS in
     ;;
   'Darwin')
     OS='Mac'
+    
     #osx specific
     alias airdropoff="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool FALSE; killall Finder"
     alias airdropon="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool TRUE; killall Finder"
@@ -178,6 +195,7 @@ case $OS in
   'AIX') ;;
   *) ;;
 esac
+
 
 
 
