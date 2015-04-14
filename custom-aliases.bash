@@ -7,6 +7,7 @@ alias shareit='python -m SimpleHTTPServer 8000 ; sudo localtunnel -k ~/.ssh/id_r
 alias bcat='pygmentize -O style=monokai -f console256 -g'
 alias ccat='pygmentize -O bg=dark'
 alias cd..='cd ..'
+alias cdh='cd ~/'
 alias ducks='du -cks *|sort -rn|head -11'
 alias grep='grep --color=auto'
 alias json='python -mjson.tool'
