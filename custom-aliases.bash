@@ -79,7 +79,7 @@ alias vagrantdev2='ssh vagrant@192.168.1.3'
 alias vagrantcopyid='ssh-copy-id vagrant@192.168.1.2 && ssh-copy-id vagrant@192.168.1.3'
 
 # misc
-alias bashitmaj='cd ~/.bash_it && git pull'
+alias bashitmaj='cd ~/.bash_it && git pull && cd ~'
 alias big-files='find -type f -ls | sort -k7 -r -n | head -20'
 alias big='du -cks *|sort -rn|head -20'
 alias lsbig="echo -n listing files & directories by size | pv -qL 10 && ls -lSrh | ccze -A"
