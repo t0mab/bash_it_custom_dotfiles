@@ -138,6 +138,7 @@ case $OS in
     alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as dependencies
     alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
     alias pacupd='sudo pacman -Sy && sudo abs'         # Update and refresh the local package and ABS databases against repositories
+    alias sc='sudo systemctl' #
     
     #misc
     #

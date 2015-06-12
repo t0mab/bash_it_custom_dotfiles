@@ -411,9 +411,13 @@ dups() {
 
 # Find command in history
 # Usage: ff (file)
-h() {
-  history | grep $1
-}
+#h() {
+#  history | grep $1
+#}
+
+hfind() { if [ -z \”$1\” ]; then history; else history | grep \”$@\”; fi; }
+
+
 
 # inits project for django-drybone project
 # see https://github.com/unistra/django-drybones
@@ -523,3 +527,14 @@ echo -n -e "\n============================================\n\tWelcome to WikiPed
 archSearch() {
 echo -n -e "\n============================================\n\tWelcome to Arch Wiki Search"; echo ""; i=1 ; for line in $(lynx --dump "https://wiki.archlinux.org/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep https://wiki.archlinux.org/ | cut -c7-); do echo $i $line; lines[$i]=$line ; i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[$answer]}
 } 
+
+#boost 
+function boost(){
+clear
+sleep 3
+echo Boosting...
+free -m | sed -n -e '3p' | grep -Po d+
+sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+free -m | sed -n -e '3p' | grep -Po d+
+echo Boosted!
+}
