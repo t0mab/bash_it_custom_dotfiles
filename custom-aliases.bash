@@ -94,6 +94,8 @@ alias psusage="ps aux  --sort=-%cpu | grep -m 11 -v `whoami` | ccze -A"  #cpu lo
 alias nstat="netstat -p TCP -eWc | ccze -A" 
 alias fact='wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;"'
 alias kindlesend='mutt bastardkindlefromhell@kindle.com -s "new book" -a'
+alias tortuga='pirate-get -C "peerflix %s -v -d -n -l -t"'
+
 # leekloud webgame
 alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
 
