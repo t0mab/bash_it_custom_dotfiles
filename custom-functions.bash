@@ -411,9 +411,13 @@ dups() {
 
 # Find command in history
 # Usage: ff (file)
-h() {
-  history | grep $1
-}
+#h() {
+#  history | grep $1
+#}
+
+hfind() { if [ -z \”$1\” ]; then history; else history | grep \”$@\”; fi; }
+
+
 
 # inits project for django-drybone project
 # see https://github.com/unistra/django-drybones
@@ -526,3 +530,14 @@ echo -n -e "\n============================================\n\tWelcome to Arch Wi
 
 haste() { a=$(cat); curl -X POST -s -d "$a" http://hastebin.com/documents | awk -F '"' '{print "http://hastebin.com/"$4}'; }
 
+#boost 
+function boost(){
+clear
+sleep 3
+echo Boosting...
+free -m | sed -n -e '3p' | grep -Po d+
+sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+free -m | sed -n -e '3p' | grep -Po d+
+echo Boosted!
+}
+>>>>>>> ce45cce8320bca10aa38f46d0b1fab1cf8ad4fac

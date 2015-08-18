@@ -79,7 +79,7 @@ alias vagrantdev2='ssh vagrant@192.168.1.3'
 alias vagrantcopyid='ssh-copy-id vagrant@192.168.1.2 && ssh-copy-id vagrant@192.168.1.3'
 
 # misc
-alias bashitmaj='cd ~/.bash_it && git pull && cd -'
+alias bashitmaj='cd ~/.bash_it && git pull && cd custom && git pull && cd ~'
 alias big-files='find -type f -ls | sort -k7 -r -n | head -20'
 alias big='du -cks *|sort -rn|head -20'
 alias lsbig="echo -n listing files & directories by size | pv -qL 10 && ls -lSrh | ccze -A"
@@ -93,6 +93,8 @@ alias hist="history -n 20 | ccze -A"    #shell history
 alias psusage="ps aux  --sort=-%cpu | grep -m 11 -v `whoami` | ccze -A"  #cpu load
 alias nstat="netstat -p TCP -eWc | ccze -A" 
 alias fact='wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;"'
+alias kindlesend='mutt bastardkindlefromhell@kindle.com -s "new book" -a'
+alias tortuga='pirate-get -C "peerflix %s -v -d -n -l -t"'
 
 # leekloud webgame
 alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
@@ -138,6 +140,7 @@ case $OS in
     alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as dependencies
     alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
     alias pacupd='sudo pacman -Sy && sudo abs'         # Update and refresh the local package and ABS databases against repositories
+    alias sc='sudo systemctl' #
     
     #misc
     #
