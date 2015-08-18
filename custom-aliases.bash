@@ -15,6 +15,7 @@ alias json='python -mjson.tool'
 alias lsd='ls -l | grep "^d"'
 alias lst='ls -AlFhrt'
 alias mkdir='mkdir -p -v'
+alias vi='vim'
 #alias musique='sudo mount.cifs //kropotkine/music /media/musique -o user=toma,file_mode=0777,dir_mode=0777'
 #alias node='env NODE_NO_READLINE=1 rlwrap -p Green -S "node >>> " node'
 alias nzgrep='grep -v "^\s*$\|^\s*#.*"'
@@ -79,7 +80,7 @@ alias vagrantdev2='ssh vagrant@192.168.1.3'
 alias vagrantcopyid='ssh-copy-id vagrant@192.168.1.2 && ssh-copy-id vagrant@192.168.1.3'
 
 # misc
-alias bashitmaj='cd ~/.bash_it && git pull && cd custom && git pull && cd ~'
+alias bashitmaj='cd ~/.bash_it && git pull && cd custom && git pull && cd'
 alias big-files='find -type f -ls | sort -k7 -r -n | head -20'
 alias big='du -cks *|sort -rn|head -20'
 alias lsbig="echo -n listing files & directories by size | pv -qL 10 && ls -lSrh | ccze -A"
