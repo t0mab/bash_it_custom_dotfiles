@@ -540,4 +540,3 @@ sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
 free -m | sed -n -e '3p' | grep -Po d+
 echo Boosted!
 }
->>>>>>> ce45cce8320bca10aa38f46d0b1fab1cf8ad4fac
