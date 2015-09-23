@@ -166,7 +166,7 @@ case $OS in
     # sudo add-apt-repository ppa:fossfreedom/byzanz
     # sudo apt-get update && sudo apt-get install byzanz
     alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif'
-    
+    alias screenrecord="ffmpeg -f x11grab -s 1920x1080 -an -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet" 
     # secure mv & rm
     alias mv=' timeout 8 mv -iv'
     alias rm=' timeout 3 rm -Iv --one-file-system'
