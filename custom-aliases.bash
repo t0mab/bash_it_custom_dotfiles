@@ -5,6 +5,7 @@
 alias shareit='python -m SimpleHTTPServer 8000 ; sudo localtunnel -k ~/.ssh/id_rsa.pub 8000'
 
 # misc
+alias back='cd "$OLDPWD"'
 alias bcat='pygmentize -O style=monokai -f console256 -g'
 alias ccat='pygmentize -O bg=dark'
 alias cd..='cd ..'
@@ -26,6 +27,7 @@ alias sulast='sudo $(history -p !-1)'
 alias sweep='find ~ -type f \( -name '*.swp' -o -name 'wget.log' -o -name 'foobar*' -o -name '*~' -o -name '.netrwhist'  \) -delete'
 alias topy='tmux attach -t topy || tmux new-session -s topy -d "htop" \; rename-window htop \; split-window -v -p 15 "iotop -o" \; attach -t topy'
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
+alias x='exit 1'
 #alias whois="whois -h whois-servers.net"
 
 # dl from ftp/site
@@ -92,7 +94,7 @@ alias psmem='ps -o time,ppid,pid,nice,pcpu,pmem,user,comm -A | sort -n -k 6 | ta
 alias toprun="ps axo %cpu,%mem,comm |sort -unr| head -n 9 | ccze -A" #top processes
 alias hist="history -n 20 | ccze -A"    #shell history
 alias psusage="ps aux  --sort=-%cpu | grep -m 11 -v `whoami` | ccze -A"  #cpu load
-alias nstat="netstat -p TCP -eWc | ccze -A" 
+alias nstat="netstat -p TCP -eWc | ccze -A"
 alias fact='wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;"'
 alias kindlesend='mutt bastardkindlefromhell@kindle.com -s "new book" -a'
 alias tortuga='pirate-get -C "peerflix %s -v -d -n -l -t"'
@@ -103,7 +105,7 @@ alias leekloud='node ~/Dev/leekwars/LeeKloud/_LeeKloud.js'
 # vpn stuff
 alias vpnroute='sudo route add -net 130.79.0.0 netmask 255.255.0.0 gw 130.79.203.254 dev eth0'
 
-# weather 
+# weather
 alias weatherfc='echo -n "Meteo de la semaine à Strasbourg  " | pv -qL 20 && weatherman -x "Strasbourg,France" | ccze -A'
 alias weather='echo -n "Meteo Strasbourg  " | pv -qL 20 && weatherman  "Strasbourg,France" '
 alias mtv="mpv http://83.218.202.202:1935/live/wt_mtv.stream/playlist.m3u8"
@@ -113,12 +115,12 @@ case $OS in
   'Linux')
     OS='Linux'
     alias ls='ls --color=auto'
-    
+
     #ubuntu relative
     alias apt-foreign="aptitude search ~o"
     alias aptmaj="sudo apt-fast update && sudo apt-fast upgrade -y && sudo apt-fast clean"
     alias install-essential="sudo add-apt-repository ppa:ricotz/docky;sudo apt-get update; sudo apt-get install php5-common libapache2-mod-php5 php5-cli git plank vim skype guake chromium-browser git firefox vlc filezilla"
-    
+
     #arch linux relatives
     alias pacc="sudo pacman -Scc"           # Clean cache - delete all not currently installed package files
     alias pacexpl="pacman -D --asexp"       # Mark one or more installed packages as explicitly installed
@@ -146,7 +148,7 @@ case $OS in
     alias pacman-upgrade="sudo pacman -Syu"     # Synchronize with repositories and then upgrade packages that are out of date on the local system.
     alias pacman-download="pacman -Sw"            # Download specified package(s) as .tar.xz ball
     alias pacman-install="sudo pacman -S"        # Install specific package(s) from the repositories
-    alias pacman-install-file="sudo pacman -U"       # Install specific package not from the repositories but from a file 
+    alias pacman-install-file="sudo pacman -U"       # Install specific package not from the repositories but from a file
     alias pacman-remove="sudo pacman -R"        # Remove the specified package(s), retaining its configuration(s) and required dependencies
     alias pacman-purge="sudo pacman -Rns"     # Remove the specified package(s), its configuration(s) and unneeded dependencies
     alias pacman-repoinfo="pacman -Si"           # Display information about a given package in the repositories
@@ -157,26 +159,32 @@ case $OS in
     alias pacman-clean-cache="sudo pacman -Scc"       # Clean cache - delete all the package files in the cache
     alias pacman-list-package-files="pacman -Ql"            # List all files installed by a given package
     alias pacman-provides-="pacman -Qo"           # Show package(s) owning the specified file(s)
-    alias pacman-force-installed="pacman -D --asexp"   # Mark one or more installed packages as explicitly installed 
+    alias pacman-force-installed="pacman -D --asexp"   # Mark one or more installed packages as explicitly installed
     alias pacman-force-uninstalled="pacman -D --asdep"   # Mark one or more installed packages as non explicitly installed
-    
+    alias sdisable=' sudo systemctl disable $@'
+    alias senable='sudo systemctl enable $@'
+    alias srestart='sudo systemctl restart $@'
+    alias sstart='sudo systemctl start $@'
+    alias sstatus='sudo systemctl status $@'
+
     #misc
     #
     # byzanz screencaster to gif
     # sudo add-apt-repository ppa:fossfreedom/byzanz
     # sudo apt-get update && sudo apt-get install byzanz
     alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif'
-    alias screenrecord="ffmpeg -f x11grab -s 1920x1080 -an -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet" 
+    alias screenrecord="ffmpeg -f x11grab -s 1920x1080 -an -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet"
     # secure mv & rm
     alias mv=' timeout 8 mv -iv'
     alias rm=' timeout 3 rm -Iv --one-file-system'
-    alias 'o'='xdg-open' 
+    alias 'o'='xdg-open'
     alias archerrors='echo -n Journal Errors | pv -qL 10 && journalctl -b -p err | ccze -A'
     alias systemdmsg="sudo journalctl /usr/lib/systemd/systemd | ccze -A"
-    alias blame="systemd-analyze blame | ccze -A"  
+    alias blame="systemd-analyze blame | ccze -A"
     alias boot="echo -n Boot Time | pv -qL 10 && systemd-analyze | ccze -A"
     alias units="echo -n Listing Units | pv -qL 10 && systemctl list-units | ccze -A"
-    
+    alias i3edit="vi ~/.i3/config"
+
     ;;
   'FreeBSD')
     OS='FreeBSD'
@@ -187,7 +195,7 @@ case $OS in
     ;;
   'Darwin')
     OS='Mac'
-    
+
     #osx specific
     alias airdropoff="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool FALSE; killall Finder"
     alias airdropon="defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool TRUE; killall Finder"

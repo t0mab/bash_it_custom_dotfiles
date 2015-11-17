@@ -418,11 +418,10 @@ dups() {
 hfind() { if [ -z \”$1\” ]; then history; else history | grep \”$@\”; fi; }
 
 
-
 # inits project for django-drybone project
 # see https://github.com/unistra/django-drybones
 # Usage initproject project_name [ -p python_version -d django_version]
-# example initproject -p 3 -d 1.6.1
+# example initproject -p 3 -d 1.8.4
 initproject() {
     unset PYTHON_VERSION
     unset PYTHON_PATH
@@ -430,7 +429,7 @@ initproject() {
     if [ -z "$1" ];then
         echo -e "Missing argument. Script usage:\n" \
         "   initproject project_name [ -p python_version -d django_version]" \
-        "   example : initproject -p 3 -d 1.6.1 "
+        "   example : initproject -p 3 -d 1.8.4 "
     else
         PROJECT_NAME=$1
         ARGS=`getopt --long -o "p:d:" "$@"`
@@ -453,12 +452,11 @@ initproject() {
         PYTHON_VERSION_PATH=`which python$PYTHON_VERSION`
         mkvirtualenv $PROJECT_NAME -p "$PYTHON_VERSION_PATH"
         if [ -z "$DJANGO_VERSION" ];then
-            pip install "Django>1.7,<1.8"
+            pip install "Django>1.8,<1.9"
         else
             pip install Django==$DJANGO_VERSION
         fi
-        pip install Django==$DJANGO_VERSION
-        django-admin.py startproject --template=https://github.com/unistra/django-drybones/archive/master.zip --extension=html,rst,ini --name=Makefile $PROJECT_NAME
+        django-admin.py startproject --template=https://github.com/unistra/django-drybones/tree/django1.8/archive/master.zip --extension=html,rst,ini,coveragerc --name=Makefile $PROJECT_NAME
         cd $PROJECT_NAME
         setvirtualenvproject $VIRTUAL_ENV $(pwd)
         echo "export DJANGO_SETTINGS_MODULE=$PROJECT_NAME.settings.dev" >> $VIRTUAL_ENV/bin/postactivate
@@ -468,7 +466,6 @@ initproject() {
         pip install -r requirements/dev.txt
     fi
 }
-
 # Specific functions for os
 OS="`uname`"
 case $OS in
@@ -522,15 +519,15 @@ extract () {
 wikipediaSearch() {
 echo -n -e "\n============================================\n\tWelcome to WikiPedia Search"; echo ""; i=1 ; for line in $(lynx --dump "http://en.wikipedia.org/w/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep http://en.wikipedia.org/wiki | cut -c7-); do echo $i $line; lines[$i]=$line ;  i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[$answer]}
 }
- 
+
 ## ARCHWIKI SEARCH FUNCTION ##
 archSearch() {
 echo -n -e "\n============================================\n\tWelcome to Arch Wiki Search"; echo ""; i=1 ; for line in $(lynx --dump "https://wiki.archlinux.org/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep https://wiki.archlinux.org/ | cut -c7-); do echo $i $line; lines[$i]=$line ; i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[$answer]}
-} 
+}
 
 haste() { a=$(cat); curl -X POST -s -d "$a" http://hastebin.com/documents | awk -F '"' '{print "http://hastebin.com/"$4}'; }
 
-#boost 
+#boost
 function boost(){
 clear
 sleep 3
@@ -539,4 +536,33 @@ free -m | sed -n -e '3p' | grep -Po d+
 sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
 free -m | sed -n -e '3p' | grep -Po d+
 echo Boosted!
+}
+
+# Arch relatives
+
+clean-cache() {
+    paccache -r
+    paccache -ruk0
+}
+
+remove-orphans() {
+    if [[ ! -n $(pacman -Qdt) ]]; then
+        echo "No orphaned packages to remove."
+    else
+        sudo pacman -Rns $(pacman -Qdtq)
+    fi
+}
+
+alias clean='remove-orphans && clean-cache && sudo pacman-optimize'
+
+broken-links() {
+	 sudo find . -type l -! -exec test -e {} \; -print
+}
+
+top10() {
+	history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' | sort | uniq -c | sort -nr | head
+}
+
+#Grep process | Usage: psgrep <process>
+psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto;
 }
